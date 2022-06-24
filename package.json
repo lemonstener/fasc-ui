@@ -1,6 +1,6 @@
 {
-  "homepage": "https://lemonstener.github.io/ui-store",
-  "name": "ui-store",
+  "homepage": "https://lemonstener.github.io/fasc-ui",
+  "name": "fasc-ui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
