@@ -4,7 +4,7 @@ import "./Product.css";
 const Product = ({ props }) => {
   return (
     <div className="Product">
-      <img src={props.image} />
+      <img alt={props.name} src={props.image} />
       <span className="Product-name">{props.name}</span>
       <span className="Product-price">
         ${parseFloat(props.price).toFixed(2)}
