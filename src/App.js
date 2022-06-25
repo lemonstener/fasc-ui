@@ -20,7 +20,6 @@ function App() {
     const num = parseInt(button.innerText);
     setClicked(num);
     setCurrentData(products.slice(20 * num - 20, num * 20));
-    window.scrollTo(0, 0);
   };
 
   const toggleModal = (item = null) => {

@@ -21,6 +21,7 @@
 .Product-name {
     text-align: center;
     font-weight: bold;
+    width: 80%;
     padding: 15px;
 }
 
@@ -46,8 +47,12 @@
 
 @media only screen and (max-width: 450px) {
     .Product {
-        width: 80%;
+        width: 80vw;
+        height: auto;
         margin: 20px auto;
-        font-size: .8em;
+    }
+    .Product-price {
+        position: static;
+        margin: 20px auto;
     }
 }
