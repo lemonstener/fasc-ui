@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 import products from "./products.json";
@@ -24,50 +23,50 @@ function App() {
   };
 
   const toggleModal = (item = null) => {
+    item
+      ? document.body.classList.add("modal-open")
+      : document.body.classList.remove("modal-open");
     item ? setModal(products[item]) : setModal(null);
-    window.scrollTo(0, 0);
   };
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         <img src="https://static.ateasesystems.net/images/facilis-logo.png" />
       </header>
-      {!modal && (
-        <>
-          <ul className="App-list-products">
-            {currentData.map((product) => {
-              return (
-                <li
-                  data-idx={products.indexOf(product)}
-                  onClick={(e) =>
-                    toggleModal(e.currentTarget.getAttribute("data-idx"))
-                  }
-                  id={product.id}
-                  key={uuidv4()}
+      <>
+        <ul className="App-list-products">
+          {currentData.map((product) => {
+            return (
+              <li
+                data-idx={products.indexOf(product)}
+                onClick={(e) =>
+                  toggleModal(e.currentTarget.getAttribute("data-idx"))
+                }
+                id={product.id}
+                key={uuidv4()}
+              >
+                <Product props={product} />
+              </li>
+            );
+          })}
+        </ul>
+        <ul className="App-list-pages">
+          {buttons.map((btn) => {
+            return (
+              <li key={uuidv4()}>
+                <button
+                  onClick={(e) => changePage(e.target)}
+                  className={clicked === btn ? "active" : "inactive"}
                 >
-                  <Product props={product} />
-                </li>
-              );
-            })}
-          </ul>
-          <ul className="App-list-pages">
-            {buttons.map((btn) => {
-              return (
-                <li key={uuidv4()}>
-                  <button
-                    onClick={(e) => changePage(e.target)}
-                    className={clicked === btn ? "active" : "inactive"}
-                  >
-                    {btn}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )}
-      {modal !== null && (
+                  {btn}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </>
+      {modal && (
         <div onClick={() => toggleModal()}>
           <Modal props={modal} />
         </div>

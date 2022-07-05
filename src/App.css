@@ -6,17 +6,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
-.App-header {
+header {
   height: 3rem;
   padding: 0.5rem 0;
 }
 
-.App-header img {
+header img {
   display: block;
   margin: 0 auto;
   max-height: 3rem;
+}
+
+.modal-open {
+  overflow: hidden;
 }
 
 .App ul {
@@ -32,7 +37,7 @@
   border-top: 1px solid gray;
 }
 
-button {
+.App-list-pages button {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -53,14 +58,14 @@ button {
 
 
 @media only screen and (min-width: 1004px) {
-  button:hover {
+  .App-list-pages button:hover {
     background-color: black;
     color: white;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .App-header img {
+  header img {
     display: block;
     margin: 0 auto;
     max-height: 2.5rem;
