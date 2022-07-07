@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("testing that html structure is as expected", () => {
+  const { container } = render(<App />);
+  const lists = container.querySelectorAll("ul");
+  const products = container.getElementsByClassName("Product");
+  const buttons = container.querySelectorAll("button");
+  expect(lists.length).toEqual(2);
+  expect(products.length).toEqual(20);
+  expect(buttons.length).toEqual(5);
 });
